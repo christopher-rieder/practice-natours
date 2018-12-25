@@ -12,82 +12,89 @@ Dark green: #28b485
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
 }
 
 body {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  /* font-size: 16px; */
   line-height: 1.7;
   color: #777;
-  padding: 24px;
+  padding: 3rem;
+  box-sizing: border-box;
 }
 
 .header {
   position: relative;
   height: 95vh;
-  background-image: linear-gradient(to right, #7ed56fbb, #28b485bb), url(../img/hero.jpg);
+  background-image: linear-gradient(to right, #00000040, #00000060), linear-gradient(to right, #7ed56f75, #28b485ba), url(../img/hero.jpg);
   background-size: cover;
   background-position: top;
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 }
 
-.logo-box {
+.header__logo-box {
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 4rem;
+  left: 4rem;
 }
 
-.logo {
-  height: 35px;
+.header__logo-box:hover {
+  animation: rotateInOut 0.75s linear infinite;
+}
+
+.header__logo {
+  height: 3.5rem;
 }
 
 /* centered, relative to the parent element */
 /* top and left determine the location of the top-left corner of the text-box element */
 /* and the translate, moves the element */
 /* -50% refers to the width/height of the text-box element, not the parent nor viewport */
-.text-box {
+.header__text-box {
   position: absolute;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .heading-primary {
   color: #FFF;
   text-transform: uppercase;
   backface-visibility: hidden;
+  margin-bottom: 6rem;
 }
 
-.heading-primary-main {
+.heading-primary--main {
   display: block;
-  font-size: 60px;
-  font-weight: 400;
-  letter-spacing: 35px;
-  animation-name: moveInLeft;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
+  font-size: 6rem;
+  font-weight: 500;
+  letter-spacing: 3.5rem;
+  animation: moveInLeft 1s ease-out;
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
   display: block;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 18px;
-  animation-name: moveInRight;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
+  letter-spacing: 1.75rem;
+  animation: moveInRight 1s ease-out;
 }
 
 @keyframes moveInLeft {
   0% {
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateX(-10rem);
   }
 
   80% {
-    transform: translateX(10px);
+    transform: translateX(1rem);
   }
 
   100% {
@@ -99,15 +106,100 @@ body {
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(10rem);
   }
 
   80% {
-    transform: translateX(-10px);
+    transform: translateX(-1rem);
   }
 
   100% {
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes rotateInOut {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-15deg);
+  }
+
+  75% {
+    transform: rotate(15deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border-radius: 10rem;
+  transition: all 0.2s;
+  border: 1px solid #28b48566;
+  backface-visibility: hidden;
+  position: relative;
+  font-size: 1.6rem;
+}
+
+.btn:hover {
+  box-shadow: 0 1rem 2rem #00000044
+}
+
+.btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 .5rem 1rem #00000066
+}
+
+.btn--white {
+  background-color: #FFF;
+  color: #777;
+}
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .4s ease-out;
+}
+
+.btn--white::after {
+  background-color: #FFF;
+}
+
+.btn:hover::after {
+  transform: scaleX(1.075) scaleY(1.15);
+  opacity: 0;
+}
+
+.btn--animated {
+  animation: moveInBottom .5s ease-out .75s;
+  animation-fill-mode: backwards;
 }
