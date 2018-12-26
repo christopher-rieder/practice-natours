@@ -56,17 +56,17 @@
 .btn-text {
   &:link,
   &:visited {
-    color: $color-primary-dark;
+    color: $color-primary;
     display: inline-block;
     text-decoration: none;
-    border-bottom: 1px solid $color-primary-dark;
+    border-bottom: 1px solid $color-primary;
     padding: 3px;
     font-size: 2rem;
     transition: all .2s;
   }
   
   &:hover{
-    background-color: $color-primary-dark;
+    background-color: $color-primary;
     color: $color-white;
     box-shadow: 0 1rem 2rem rgba($color-dark, 0.15);
   }
