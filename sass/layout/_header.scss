@@ -1,0 +1,35 @@
+
+.header {
+  position: relative;
+  height: 95vh;
+  background-image: linear-gradient(to right, rgba($color-dark, 0.25), rgba($color-dark, 0.4)), linear-gradient(to right, rgba($color-primary-light, 0.45), rgba($color-primary-dark, 0.75)), url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+  
+  &__logo-box:hover {
+    animation: rotateInOut 0.75s linear infinite;
+  }
+  
+  &__logo {
+    height: 3.5rem;
+  }
+  
+  /* centered, relative to the parent element */
+  /* top and left determine the location of the top-left corner of the text-box element */
+  /* and the translate, moves the element */
+  /* -50% refers to the width/height of the text-box element, not the parent nor viewport */
+  &__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+}
