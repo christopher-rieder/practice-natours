@@ -22,15 +22,8 @@
     height: 3.5rem;
   }
   
-  /* centered, relative to the parent element */
-  /* top and left determine the location of the top-left corner of the text-box element */
-  /* and the translate, moves the element */
-  /* -50% refers to the width/height of the text-box element, not the parent nor viewport */
   &__text-box {
-    position: absolute;
+    @include absolute-center;
     top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
   }
 }

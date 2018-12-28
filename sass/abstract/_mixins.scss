@@ -5,3 +5,15 @@
     clear: both;
   }
 }
+
+/* centered, relative to the parent element
+ * top and left determine the location of the top-left corner of the text-box element
+ * and the translate, moves the element
+ * -50% refers to the width/height of the text-box element, not the parent nor viewport */
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
